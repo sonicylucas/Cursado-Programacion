@@ -37,16 +37,19 @@ while True:
             total += valor_bebidas * bebidas
             print("\nBebidas agregadas. Total actual: $", total)
         case "4":
-            efectivo = input(f'\nEl Total A Pagar Es: ${total}. Con Cuanto Efectivo Abonara?: ',)
+            efectivo = input(f'\nEl Total A Pagar Es: ${total}. Con Cuanto Efectivo Abonara?: ')
             while not efectivo.isdigit():
-                efectivo = input(f'\nEl Total A Pagar Es: ${total}. Con Cuanto Efectivo Abonara?: ',)
+                efectivo = input(f'\nEl Total A Pagar Es: ${total}. Con Cuanto Efectivo Abonara?: ')
             efectivo = int(efectivo)
-            if efectivo >= total:
-                vuelto = efectivo - total
-                print(f'\nEl Pago Se Ha Realizado Correctamente. Este es su vuelto: ', vuelto)
-            elif efectivo < total:
-                while efectivo < total:
-                    print("Efectivo insuficiente. Vuelva a Ingresar: ")
+            while efectivo < total:
+                print("Efectivo insuficiente. Vuelva a ingresar: ")
+                efectivo = input(f'\nEl Total A Pagar Es: ${total}. Con Cuanto Efectivo Abonara?: ')
+                while not efectivo.isdigit():
+                    efectivo = input("Ingrese un monto valido: ")
+                efectivo = int(efectivo)
+            vuelto = efectivo - total
+            print(f"\nEl Pago Se Ha Realizado Correctamente.")
+            print(f"Su vuelto es: ${vuelto}")
 
         case "5":
             print("Usted Ha Cancelado El pedido")
